@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <div class="container-fluid">
     <h1> bem vindo a {{title}} </h1>
 
     <h3 v-if="horas >=7 && horas <17" id="aberta" >ABERTA </h3>
@@ -19,13 +20,13 @@
  
    <div class="row">
  
-     <div class="col-3" v-bind:key="filme.id" v-for="filme in filmes">
+     <div class="col-md-4"  v-bind:key="filme.id" v-for="filme in filmes">
        <div class="card">
          <img v-bind:src="filme.imagem" class="card-img-top" alt="imagem do filme">
          <div class="card-body">
            <h5 class="card-title">{{ filme.titulo }}</h5>
            <p class="card-text">{{ filme.descricao }}</p>
-           <p class="card-text">{{ filme.valor }}</p>
+           <p class="card-text">{{ filme.valor | formatarPreco("R$") }}</p>
            <a href="#" class="btn btn-primary">ALUGAR</a>
          </div>
        </div>
@@ -34,7 +35,7 @@
    </div>
     
 
-  
+    </div>
 </div>
     
 
